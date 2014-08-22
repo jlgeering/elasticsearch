@@ -14,6 +14,10 @@ RUN \
   tar xvzf elasticsearch-1.3.2.tar.gz && \
   rm -f elasticsearch-1.3.2.tar.gz && \
   mv /tmp/elasticsearch-1.3.2 /elasticsearch
+  
+RUN /elasticsearch/bin/plugin --install mobz/elasticsearch-head
+RUN /elasticsearch/bin/plugin --install lmenezes/elasticsearch-kopf/1.2
+RUN /elasticsearch/bin/plugin --install polyfractal/elasticsearch-inquisitor
 
 # Define mountable directories.
 VOLUME ["/data"]
